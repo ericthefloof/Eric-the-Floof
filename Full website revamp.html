@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eric The Fluff 🐶</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(-45deg, #f7efe6, #fff, #ffe5d9, #f8edeb);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  color: #4b2e2e;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+header {
+  background: #a16a4f;
+  color: white;
+  padding: 40px 20px;
+  animation: wiggle 3s infinite;
+}
+
+@keyframes wiggle {
+  0%,100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+iframe {
+  width: 315px;
+  height: 560px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.counter-box {
+  margin-top: 30px;
+  font-size: 1.4rem;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background: #a16a4f;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  background: #a16a4f;
+  color: white;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+/* Floating chaos emojis */
+.chaos {
+  position: fixed;
+  font-size: 24px;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Eric The Fluff 🐶</h1>
+  <p>11 y/o Cockapoo | Chaos Activated</p>
+</header>
+
+<section>
+  <h2>Latest Chaos</h2>
+  <iframe src="https://www.youtube.com/embed/i7xNx1KY9Nk"
+  allowfullscreen></iframe>
+</section>
+
+<section>
+  <h2>Zoomies Counter</h2>
+  <div class="counter-box">
+    Page Clicks: <span id="clickCount">0</span>
+    <br>
+    <button onclick="zoomies()">ADD ZOOMIES 🐾</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 Eric The Fluff | Maximum Chaos Mode 🐶🔥
+</footer>
+
+<script>
+// Page click counter
+let count = 0;
+document.body.addEventListener("click", function() {
+  count++;
+  document.getElementById("clickCount").innerText = count;
+});
+
+// Zoomies button bonus
+function zoomies() {
+  count += 10;
+  document.getElementById("clickCount").innerText = count;
+  spawnChaos();
+}
+
+// Chaos emoji spawner
+function spawnChaos() {
+  const emojis = ["🐶","🐾","🔥","💨","✨"];
+  for (let i = 0; i < 5; i++) {
+    let chaos = document.createElement("div");
+    chaos.classList.add("chaos");
+    chaos.style.left = Math.random() * 100 + "vw";
+    chaos.style.animationDuration = (5 + Math.random()*5) + "s";
+    chaos.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+    document.body.appendChild(chaos);
+
+    setTimeout(() => {
+      chaos.remove();
+    }, 8000);
+  }
+}
+</script>
+
+</body>
+</html>
